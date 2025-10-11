@@ -7517,7 +7517,7 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="Homework-02">Homework 02<a class="anchor-link" href="#Homework-02">¶</a></h1><h2 id="Keith-Wampler">Keith Wampler<a class="anchor-link" href="#Keith-Wampler">¶</a></h2>
+<h1 id="Homework-02">Homework 02<a class="anchor-link" href="#Homework-02">¶</a></h1><h2 id="Keith-Wampler">Keith Wampler<a class="anchor-link" href="#Keith-Wampler">¶</a></h2><h4 id="AI-Tool-Used:-Gemini-2.5-Pro">AI Tool Used: Gemini 2.5 Pro<a class="anchor-link" href="#AI-Tool-Used:-Gemini-2.5-Pro">¶</a></h4>
 </div>
 </div>
 </div>
@@ -7537,19 +7537,19 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Define the path to your file</span>
+<span class="c1"># path to the NRI file</span>
 <span class="n">nri_path</span> <span class="o">=</span> <span class="s1">'/Users/keith/Documents/code/Intro to ML 2025/data/raw/NRI_Table_Counties.csv'</span>
 
-<span class="c1"># Import the data, specifying the FIPS column as a string type</span>
+<span class="c1"># import the data w/ FIPS column as a string type</span>
 <span class="n">nri_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">nri_path</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">'STCOFIPS'</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
 
-<span class="c1"># Display the first few rows to check</span>
+<span class="c1"># check</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nri_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -7613,16 +7613,16 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># List comprehension to find columns ending with '_AFREQ' or '_RISKR'</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># find columns ending with '_AFREQ' or '_RISKR'</span>
 <span class="n">selected_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'STCOFIPS'</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">nri_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'_AFREQ'</span><span class="p">)</span> <span class="ow">or</span> <span class="n">col</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'_RISKR'</span><span class="p">)]</span>
 
-<span class="c1"># Create the subset</span>
+<span class="c1"># create the subset</span>
 <span class="n">nri_subset</span> <span class="o">=</span> <span class="n">nri_df</span><span class="p">[</span><span class="n">selected_cols</span><span class="p">]</span>
 
-<span class="c1"># Display the first few rows of the subset</span>
+<span class="c1"># check</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">nri_subset</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -7686,10 +7686,10 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Extract unique hazard prefixes (e.g., 'AVLN', 'CFLD')</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># extract unique hazard prefixes</span>
 <span class="n">hazards</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">col</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'_'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">nri_subset</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="s1">'_'</span> <span class="ow">in</span> <span class="n">col</span><span class="p">])))</span>
 
 <span class="c1"># Create a dictionary to store missing value counts</span>
@@ -7703,7 +7703,7 @@ a.anchor-link {
         <span class="s1">'RISKR_missing'</span><span class="p">:</span> <span class="n">nri_subset</span><span class="p">[</span><span class="n">riskr_col</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="p">}</span>
 
-<span class="c1"># Convert the dictionary to a DataFrame for nice printing</span>
+<span class="c1"># convert the dictionary to a df printing</span>
 <span class="n">missing_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">missing_counts</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">'index'</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">missing_df</span><span class="p">)</span>
@@ -7759,13 +7759,13 @@ WNTW              0              0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a new column that is True if AVLN_AFREQ is null, and False otherwise</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># create a new column that is True if AVLN_AFREQ is null, and False otherwise</span>
 <span class="n">nri_df</span><span class="p">[</span><span class="s1">'AVLN_AFREQ_missing'</span><span class="p">]</span> <span class="o">=</span> <span class="n">nri_df</span><span class="p">[</span><span class="s1">'AVLN_AFREQ'</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span>
 
-<span class="c1"># Create a cross-tabulation table</span>
+<span class="c1"># make cross-tabulation table</span>
 <span class="c1"># dropna=False ensures we see counts of missing values in the RISKR column as well</span>
 <span class="n">cross_tab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span>
     <span class="n">nri_df</span><span class="p">[</span><span class="s1">'AVLN_AFREQ_missing'</span><span class="p">],</span>
@@ -7827,17 +7827,17 @@ True                                  0          0         0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get a list of all AFREQ columns</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># make list of all AFREQ columns</span>
 <span class="n">afreq_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">nri_df</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'_AFREQ'</span><span class="p">)]</span>
 
-<span class="c1"># Fill missing values in these columns with 0</span>
+<span class="c1"># fill missing values in these columns with 0</span>
 <span class="n">nri_df</span><span class="p">[</span><span class="n">afreq_columns</span><span class="p">]</span> <span class="o">=</span> <span class="n">nri_df</span><span class="p">[</span><span class="n">afreq_columns</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># Verify by checking the missing counts again for one of the columns</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Missing values in AVLN_AFREQ after imputation: </span><span class="si">{</span><span class="n">nri_df</span><span class="p">[</span><span class="s1">'AVLN_AFREQ'</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># check</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"missing values in AVLN_AFREQ after imputation: </span><span class="si">{</span><span class="n">nri_df</span><span class="p">[</span><span class="s1">'AVLN_AFREQ'</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7850,7 +7850,7 @@ True                                  0          0         0
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Missing values in AVLN_AFREQ after imputation: 0
+<pre>missing values in AVLN_AFREQ after imputation: 0
 </pre>
 </div>
 </div>
@@ -7872,16 +7872,16 @@ True                                  0          0         0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Define the path to your SVI file</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># path to your SVI file</span>
 <span class="n">svi_path</span> <span class="o">=</span> <span class="s1">'/Users/keith/Documents/code/Intro to ML 2025/data/raw/SVI_2022_US_county.csv'</span>
 
-<span class="c1"># Import the SVI data, ensuring FIPS is a string</span>
+<span class="c1"># import the SVI data w/ FIPS is a string</span>
 <span class="n">svi_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">svi_path</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s1">'FIPS'</span><span class="p">:</span> <span class="nb">str</span><span class="p">})</span>
 
-<span class="c1"># List of columns to keep</span>
+<span class="c1"># columns to keep</span>
 <span class="n">svi_columns_to_keep</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">'ST'</span><span class="p">,</span> <span class="s1">'STATE'</span><span class="p">,</span> <span class="s1">'ST_ABBR'</span><span class="p">,</span> <span class="s1">'STCNTY'</span><span class="p">,</span> <span class="s1">'COUNTY'</span><span class="p">,</span> <span class="s1">'FIPS'</span><span class="p">,</span> <span class="s1">'LOCATION'</span><span class="p">,</span> <span class="s1">'AREA_SQMI'</span><span class="p">,</span>
     <span class="s1">'E_TOTPOP'</span><span class="p">,</span> <span class="s1">'EP_POV150'</span><span class="p">,</span> <span class="s1">'EP_UNEMP'</span><span class="p">,</span> <span class="s1">'EP_HBURD'</span><span class="p">,</span> <span class="s1">'EP_NOHSDP'</span><span class="p">,</span> <span class="s1">'EP_UNINSUR'</span><span class="p">,</span>
@@ -7890,10 +7890,10 @@ True                                  0          0         0
     <span class="s1">'EP_AFAM'</span><span class="p">,</span> <span class="s1">'EP_HISP'</span><span class="p">,</span> <span class="s1">'EP_ASIAN'</span><span class="p">,</span> <span class="s1">'EP_AIAN'</span><span class="p">,</span> <span class="s1">'EP_NHPI'</span><span class="p">,</span> <span class="s1">'EP_TWOMORE'</span><span class="p">,</span> <span class="s1">'EP_OTHERRACE'</span>
 <span class="p">]</span>
 
-<span class="c1"># Create the subset</span>
+<span class="c1"># make subset</span>
 <span class="n">svi_subset</span> <span class="o">=</span> <span class="n">svi_df</span><span class="p">[</span><span class="n">svi_columns_to_keep</span><span class="p">]</span>
 
-<span class="c1"># Display the first few rows</span>
+<span class="c1"># check</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">svi_subset</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -7957,13 +7957,13 @@ True                                  0          0         0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get the sum of nulls for each column</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># sum of nulls for each column</span>
 <span class="n">missing_svi</span> <span class="o">=</span> <span class="n">svi_subset</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="c1"># Print the result</span>
+<span class="c1"># check</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">missing_svi</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8032,20 +8032,20 @@ dtype: int64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get the set of FIPS codes from each DataFrame</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># get the set of FIPS codes from each df</span>
 <span class="n">nri_fips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">nri_df</span><span class="p">[</span><span class="s1">'STCOFIPS'</span><span class="p">])</span>
 <span class="n">svi_fips</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">svi_df</span><span class="p">[</span><span class="s1">'FIPS'</span><span class="p">])</span>
 
-<span class="c1"># Find FIPS codes in NRI but not in SVI</span>
+<span class="c1"># find FIPS codes in NRI but not in SVI</span>
 <span class="n">nri_only</span> <span class="o">=</span> <span class="n">nri_fips</span> <span class="o">-</span> <span class="n">svi_fips</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FIPS codes in NRI only: </span><span class="si">{</span><span class="n">nri_only</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">nri_only</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 
 
-<span class="c1"># Find FIPS codes in SVI but not in NRI</span>
+<span class="c1"># find FIPS codes in SVI but not in NRI</span>
 <span class="n">svi_only</span> <span class="o">=</span> <span class="n">svi_fips</span> <span class="o">-</span> <span class="n">nri_fips</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"FIPS codes in SVI only: </span><span class="si">{</span><span class="n">svi_only</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Count: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">svi_only</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -8061,10 +8061,10 @@ dtype: int64
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>FIPS codes in NRI only: {'72101', '09003', '72035', '72059', '69110', '72053', '72129', '72085', '72153', '72029', '72021', '72151', '72115', '09005', '72077', '72127', '72063', '72007', '60020', '72113', '72071', '72091', '72131', '72095', '72001', '72107', '72089', '72011', '72023', '09001', '72049', '72099', '72143', '72073', '69120', '09007', '72005', '72093', '72105', '72133', '72117', '72019', '72047', '72065', '72039', '66010', '72145', '72033', '72045', '72055', '72119', '72081', '72125', '78020', '72075', '72123', '72087', '72061', '72057', '09011', '72103', '72069', '72137', '72111', '72031', '72083', '72079', '72017', '72051', '72027', '69100', '72149', '72013', '60010', '72009', '09015', '72003', '78030', '72043', '72147', '72109', '72054', '72141', '72015', '72037', '09009', '72025', '72041', '72097', '72135', '78010', '09013', '72139', '72121', '72067', '60050'}
+<pre>FIPS codes in NRI only: {'72111', '72143', '78030', '72131', '72043', '72147', '72087', '72031', '72141', '72065', '72035', '72049', '09013', '72097', '69120', '72139', '69110', '72013', '72115', '72119', '72095', '72051', '60010', '09003', '72007', '72091', '72023', '60050', '09005', '72027', '72113', '72081', '09011', '72015', '72089', '72083', '78020', '09015', '72011', '72135', '72075', '72117', '72009', '72061', '72071', '72099', '72133', '72077', '72107', '72037', '72101', '78010', '09007', '72017', '72103', '72021', '72145', '72039', '72073', '72129', '72127', '72093', '72121', '72079', '72105', '72109', '72033', '72019', '72137', '09009', '72057', '72054', '72067', '72025', '72151', '66010', '72125', '72153', '72047', '72123', '72059', '60020', '69100', '72055', '72085', '09001', '72029', '72063', '72069', '72053', '72149', '72001', '72005', '72003', '72041', '72045'}
 Count: 96
 
-FIPS codes in SVI only: {'09170', '09110', '09140', '09120', '09190', '09180', '09160', '09130', '09150'}
+FIPS codes in SVI only: {'09120', '09160', '09140', '09180', '09110', '09170', '09150', '09190', '09130'}
 Count: 9
 </pre>
 </div>
@@ -8098,14 +8098,14 @@ Count: 9
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Rename columns for clarity before merging</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># rename columns before merging</span>
 <span class="n">nri_cleaned</span> <span class="o">=</span> <span class="n">nri_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">'STCOFIPS'</span><span class="p">:</span> <span class="s1">'FIPS'</span><span class="p">})</span>
 <span class="n">svi_cleaned</span> <span class="o">=</span> <span class="n">svi_subset</span> <span class="c1"># Already subsetted in Task 2</span>
 
-<span class="c1"># Perform an outer merge</span>
+<span class="c1"># outer merge</span>
 <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
     <span class="n">nri_cleaned</span><span class="p">,</span>
     <span class="n">svi_cleaned</span><span class="p">,</span>
@@ -8113,7 +8113,7 @@ Count: 9
     <span class="n">how</span><span class="o">=</span><span class="s1">'outer'</span>
 <span class="p">)</span>
 
-<span class="c1"># Display the shape of the merged DataFrame</span>
+<span class="c1"># show size of merged df</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -8149,10 +8149,10 @@ Count: 9
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Get missing value counts for the merged DataFrame</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># get missing value counts for the merged df</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">merged_df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 </pre></div>
 </div>
@@ -8199,17 +8199,16 @@ Length: 498, dtype: int64
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [25]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
 
-<span class="c1"># Select only numerical columns for plotting</span>
+<span class="c1"># select only numerical columns for plotting</span>
 <span class="n">numerical_cols</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
 
-<span class="c1"># Create a figure to hold the plots</span>
-<span class="c1"># You may need to adjust the figure size and layout depending on the number of columns</span>
+<span class="c1"># figure to hold the plots</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">200</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">numerical_cols</span><span class="p">):</span>
