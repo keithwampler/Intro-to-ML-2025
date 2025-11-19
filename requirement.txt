@@ -3,3 +3,10 @@ matlabplot
 numpy
 scikit-learn
 seaborn
+pathos
+jupyter
+torch
+xgboost
+tensorflow
+geopandas
+keras
